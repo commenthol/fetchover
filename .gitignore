@@ -1,0 +1,13 @@
+node_modules/
+coverage/
+tmp/
+
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+.DS_Store
+.env*
+
+*.log
+*.tgz

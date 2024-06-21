@@ -1,0 +1,42 @@
+{
+  "name": "fetchover",
+  "version": "1.0.0-0",
+  "description": "A fetch implementation with failover",
+  "keywords": [
+    "fetch",
+    "failover"
+  ],
+  "license": "MIT",
+  "author": "commenthol",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "./types/index.d.ts",
+  "files": [
+    "src",
+    "types"
+  ],
+  "scripts": {
+    "all": "npm-run-all lint pretty c8 types",
+    "c8": "c8 -r text npm t",
+    "pretty": "prettier -w **/*.js",
+    "lint": "eslint",
+    "test": "mocha",
+    "types": "rm -rf types/*; tsc; cp src/*.d.ts types/"
+  },
+  "mocha": {
+    "exit": false,
+    "recursive": true,
+    "timeout": 2000
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.5.0",
+    "@types/node": "^20.14.7",
+    "c8": "^10.1.2",
+    "eslint": "^9.5.0",
+    "globals": "^15.6.0",
+    "mocha": "^10.4.0",
+    "npm-run-all2": "^6.2.0",
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.2"
+  }
+}
