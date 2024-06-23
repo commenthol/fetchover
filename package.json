@@ -6,6 +6,7 @@
     "fetch",
     "failover"
   ],
+  "homepage": "https://github.com/commenthol/fetchover",
   "license": "MIT",
   "author": "commenthol",
   "type": "module",
