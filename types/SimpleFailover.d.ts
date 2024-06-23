@@ -4,8 +4,9 @@
  */
 /**
  * @typedef {object} SimpleFailoverOptions
- * @property {string[]} servers list of failover servers
+ * @property {string[]} [servers] list of failover servers
  * @property {number} [timeout=5e3] timeout of consecutive request after failure
+ * (circuit breaker)
  */
 /**
  * @implements {Failover}
@@ -40,12 +41,14 @@ export type SimpleFailoverOptions = {
     /**
      * list of failover servers
      */
-    servers: string[];
+    servers?: string[] | undefined;
     /**
      * timeout of consecutive request after failure
+     * (circuit breaker)
      */
     /**
      * timeout of consecutive request after failure
+     * (circuit breaker)
      */
     timeout?: number | undefined;
 };

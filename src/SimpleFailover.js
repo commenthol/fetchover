@@ -6,8 +6,9 @@ import { ExpiryMap } from './ExpiryMap.js'
  */
 /**
  * @typedef {object} SimpleFailoverOptions
- * @property {string[]} servers list of failover servers
+ * @property {string[]} [servers] list of failover servers
  * @property {number} [timeout=5e3] timeout of consecutive request after failure
+ * (circuit breaker)
  */
 
 /**
@@ -18,10 +19,8 @@ export class SimpleFailover {
    * @param {SimpleFailoverOptions} param
    */
   constructor(param) {
-    const { servers, timeout = 5e3 } = param
-    if (!servers?.length) {
-      throw new Error('servers are empty')
-    }
+    const { servers = [], timeout = 5e3 } = param
+
     const _servers = servers.map((server) => {
       const s = new URL(server)
       if (s.pathname !== '/') {

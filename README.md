@@ -43,14 +43,20 @@ The `SimpleFailover` mechanism will issue the request (using the same pathname
 but different hostname) to different "fallback" servers in case that the
 "target" server of the initial request is unavailable.
 
+With `timeout` you can control when the next request after a failure can be
+issued, effectively acting as circuit breaker here. Default is 5 seconds.
+
+In case that only the circuit breaker functionality is needed, don't name any
+fallback servers.
+
 *type declaration*
 
 ```ts
 interface SimpleFailoverOptions {
   /** list of failover servers */
-  servers: string[]
+  servers?: string[]
   /**
-   * timeout of consecutive request after failure
+   * timeout of consecutive request after failure (circuit breaker)
    * @default 5e3
    */
   timeout?: number
