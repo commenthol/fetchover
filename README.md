@@ -7,7 +7,7 @@ Supports node and browsers.
 ## Usage
 
 ```js
-import { fetchOver, SimpleStrategy } from 'fetchover'
+import { fetchOver, SimpleFailover } from 'fetchover'
 
 // define your failover servers
 const servers = [
